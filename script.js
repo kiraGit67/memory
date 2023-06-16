@@ -10,6 +10,9 @@ let openCards = [];
 const scoreElement = document.querySelector("#score");
 let score = 0;
 
+//Variable for turn
+let turn = true;
+
 const cardsArray = [
   "https://picsum.photos/seed/1/500",
   "https://picsum.photos/seed/1/500",
@@ -50,12 +53,18 @@ function renderGameField() {
 }
 
 function flipCard(event) {
+  //Variable for card event
+  const card = event.target;
+
+  //Variable for index of card event
+  let cardIndex = card.dataset.index;
+  console.log(cardIndex);
+
+  if (turn === false || openCards[0]?.dataset.index === cardIndex) {
+    return;
+  }
+
   if (openCards.length < 2) {
-    const card = event.target;
-
-    let cardIndex = card.dataset.index;
-    console.log(cardIndex);
-
     //card.style.backgroundImage = "url(" + cardsArray[cardIndex] + ")";
     card.style.backgroundImage = `url(${cardsArray[cardIndex]})`;
 
@@ -63,6 +72,8 @@ function flipCard(event) {
   }
 
   if (openCards.length === 2) {
+    turn = false;
+
     console.log(openCards);
     console.log(openCards[0]);
     console.log(openCards[1]);
@@ -72,6 +83,7 @@ function flipCard(event) {
     ) {
       score++;
       openCards.length = 0;
+      turn = true;
     } else {
       setTimeout(() => {
         for (let openCard of openCards) {
@@ -79,6 +91,7 @@ function flipCard(event) {
         }
 
         openCards.length = 0;
+        turn = true;
       }, 2000);
     }
   }
