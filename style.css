@@ -24,4 +24,6 @@ header {
 .card {
   background-color: black;
   aspect-ratio: 1;
+  background-size: cover;
+  background-position: center center;
 }
