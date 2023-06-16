@@ -28,7 +28,9 @@ function renderGameField() {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
     cardElement.setAttribute("data-index", c - 1);
+    //Adds EventListener to each card element
     cardElement.addEventListener("click", flipCard);
+    //Appends each card element to gamefield element
     gameField.appendChild(cardElement);
   }
 }
