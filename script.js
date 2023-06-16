@@ -27,18 +27,16 @@ function renderGameField() {
   for (let c = 1; c <= cardsCount; c++) {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
-    cardElement.dataset.index = c - 1;
-    //cardElement.setAttribute("data-index", c - 1);
-    //cardElement.setAttribute("data-number", "card-" + c);
-
-    cardElement.addEventListener("click", (event) => {
-      let cardIndex = event.target.dataset.index;
-      console.log(cardIndex);
-      event.target.style.backgroundImage = "url(" + cardsArray[cardIndex] + ")";
-    });
-
+    cardElement.setAttribute("data-index", c - 1);
+    cardElement.addEventListener("click", flipCard);
     gameField.appendChild(cardElement);
   }
+}
+
+function flipCard(event) {
+  let cardIndex = event.target.dataset.index;
+  console.log(cardIndex);
+  event.target.style.backgroundImage = "url(" + cardsArray[cardIndex] + ")";
 }
 
 renderGameField();
