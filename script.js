@@ -12,6 +12,8 @@ let score = 0;
 
 scoreElement.innerText = score;
 
+renderGameField();
+
 //Variable for turn
 let turn = true;
 
@@ -96,10 +98,16 @@ function flipCard(event) {
         turn = true;
       }, 2000);
     }
+
+    if (score === 0) {
+      scoreElement.classList.add("score--null");
+    } else if (score > 0) {
+      scoreElement.classList.add("score--win");
+    }
   }
 
   console.log(score);
   scoreElement.innerText = score;
 }
 
-renderGameField();
+//renderGameField();
