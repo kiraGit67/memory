@@ -10,6 +10,8 @@ let openCards = [];
 const scoreElement = document.querySelector("#score");
 let score = 0;
 
+scoreElement.innerText = score;
+
 //Variable for turn
 let turn = true;
 
