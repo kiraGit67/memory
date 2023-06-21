@@ -4,15 +4,67 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 body {
   margin: 0 auto;
   max-width: 750px;
+  border-left: 1px solid darkolivegreen;
+  border-right: 1px solid darkolivegreen;
+  box-shadow: 0 0 35px silver;
 }
 
 header {
+  padding-block: 2rem;
+  padding-inline: 1.5rem;
+  background-image: linear-gradient(to bottom, olivedrab, whitesmoke);
+}
+
+header > .score-area {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+header > h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0;
+  background-image: linear-gradient(45deg, whitesmoke, wheat, orange);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#new-game-button {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.5rem;
+  padding: 0.35rem 0.5rem;
+  color: olivedrab;
+  border: 2px solid olivedrab;
+  background-color: transparent;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out,
+    border-color 0.5s ease-in-out;
+}
+
+#new-game-button:hover {
+  background-color: olivedrab;
+  border-color: whitesmoke;
+  color: whitesmoke;
+}
+
+.score-area p {
+  font-size: 1.75rem;
+  color: darkolivegreen;
+}
+
+main {
+  padding: 1.5rem;
+  background-color: whitesmoke;
 }
 
 .gamefield {
@@ -22,7 +74,9 @@ header {
 }
 
 .card {
-  background-color: black;
+  background-color: lightgray;
+  background-image: linear-gradient(to right bottom, gray, transparent);
+  box-shadow: 3px 3px 10px lightgrey;
   aspect-ratio: 1;
   background-size: cover;
   background-position: center center;
